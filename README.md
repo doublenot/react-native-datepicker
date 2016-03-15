@@ -1,3 +1,3 @@
-# react-native-datepicker
+# react-native-simpledatepicker
 
 Simple date picker for React Native
