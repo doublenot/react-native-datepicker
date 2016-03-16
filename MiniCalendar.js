@@ -109,14 +109,14 @@ class MiniCalendar extends React.Component {
     if(this.state.showDayHeading === true){
       const headingsList = this.state.dayHeadings.map((dowHeading, dowIdx) => {
         return (
-          <View style={styles.dowStyleContainer}>
+          <View key={`heading-${dowIdx}`} style={styles.dowStyleContainer}>
             <Text style={[styles.dayOfWeekHeading, this.props.headingStyle || {}]}>{dowHeading}</Text>
           </View>
         )
       })
 
       miniCalendarHeadings = (
-        <View style={styles.dayOfWeekContainer}>
+        <View key={'headings'} style={styles.dayOfWeekContainer}>
           {headingsList}
         </View>
       )
