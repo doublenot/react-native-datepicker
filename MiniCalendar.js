@@ -72,7 +72,7 @@ class MiniCalendar extends React.Component {
 
       const dowElement = (
         <TouchableOpacity
-          key={`${weekIdx}-${dow}`}
+          key={`${weekIdx}-${dowIdx}`}
           underlayColor='transparent'
           onPress={() => {
             if(disabledDate === false){
