@@ -19,15 +19,13 @@
     "minicalendar",
     "calendar",
     "simple",
-    "date",
+    "date"
   ],
   "author": "DoubleNot (http://doublenot.co)",
-  "contributors": [
-    {
-      "name": "license2e",
-      "email": "ilya@shindyapin.com"
-    }
-  ],
+  "contributors": [{
+    "name": "license2e",
+    "email": "ilya@shindyapin.com"
+  }],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/doublenot/react-native-minicalendar/issues"
