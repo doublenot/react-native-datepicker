@@ -10,6 +10,11 @@
     "type": "git",
     "url": "git+https://github.com/doublenot/react-native-minicalendar.git"
   },
+
+  "files": [
+    "MiniCalendar.js",
+    "README.md"
+  ],
   "keywords": [
     "react",
     "native",
