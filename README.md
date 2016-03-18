@@ -2,6 +2,11 @@
 
 Simple mini calendar or date picker for React Native
 
+## Installation
+
+`npm install react-native-minicalendar --save`
+
+## Usage
 
 ### Example:
 
@@ -23,3 +28,9 @@ Simple mini calendar or date picker for React Native
   selectedDayStyle={{backgroundColor: 'goldenrod'}}
 />
 ```
+
+### Demo:
+![Demo gif](./demo.gif)
+
+Thanks to @license2e and the React Native community for the assistance.
+MIT Licensed
