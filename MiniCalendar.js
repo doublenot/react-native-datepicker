@@ -1,13 +1,12 @@
 'use strict';
-import React from 'react-native'
+import React, { Component } from 'react'
 import moment from 'moment'
-const {
+import {
   View,
   Text,
   TouchableOpacity,
-  PropTypes,
   StyleSheet,
-} = React
+} from 'react-native'
 
 class MiniCalendar extends React.Component {
 
@@ -15,13 +14,13 @@ class MiniCalendar extends React.Component {
     super(props)
     this.state = {
       selectedDate: null,
-      dayHeadings: this.props.dayHeadings || ['Su','Mo','Tu','We','Th','Fr','Sa'],
-      showDayHeading: this.props.showDayHeading || true,
-      enabledDaysOfTheWeek: this.props.enabledDaysOfTheWeek || ['Su','Mo','Tu','We','Th','Fr','Sa'],
-      selectedDate: this.props.selectedDate || moment().format('YYYY-MM-DD'),
-      startOfWeek: (this.props.isoWeek) ? 'isoWeek' : 'week',
-      disablePreviousDays: this.props.disablePreviousDays || true,
-      disableToday: this.props.disableToday || false,
+      dayHeadings: (this.props.hasOwnProperty('dayHeadings') === true) ? this.props.dayHeadings : ['Su','Mo','Tu','We','Th','Fr','Sa'],
+      showDayHeading: (this.props.hasOwnProperty('showDayHeading') === true) ? this.props.showDayHeading : true,
+      enabledDaysOfTheWeek: (this.props.hasOwnProperty('enabledDaysOfTheWeek') === true) ? this.props.enabledDaysOfTheWeek : ['Su','Mo','Tu','We','Th','Fr','Sa'],
+      selectedDate: (this.props.hasOwnProperty('selectedDate') === true) ? this.props.selectedDate : moment().format('YYYY-MM-DD'),
+      startOfWeek: (this.props.isoWeek === true) ? 'isoWeek' : 'week',
+      disablePreviousDays: (this.props.hasOwnProperty('disablePreviousDays') === true) ? this.props.disablePreviousDays : true,
+      disableToday: (this.props.hasOwnProperty('disableToday') === true) ? this.props.disableToday : false,
     }
   }
 
@@ -116,7 +115,7 @@ class MiniCalendar extends React.Component {
       })
 
       miniCalendarHeadings = (
-        <View key={'headings'} style={styles.dayOfWeekContainer}>
+        <View key={'headings'} style={[styles.dayOfWeekContainer, {flex: 0}]}>
           {headingsList}
         </View>
       )
@@ -136,27 +135,27 @@ class MiniCalendar extends React.Component {
   }
 }
 
-MiniCalendar.PropTypes = {
-  showDayHeading: PropTypes.bool,
-  dayHeadings: PropTypes.array,
-  enabledDaysOfTheWeek: PropTypes.array,
-  startDate: PropTypes.string.isRequired,
-  numberOfDaysToShow: PropTypes.number.isRequired,
-  numberOfPreviousDaysToShow: PropTypes.number,
-  selectedDate: PropTypes.string,
-  onDateSelect: PropTypes.func.isRequired,
-  isoWeek: PropTypes.bool,
-  disablePreviousDays: PropTypes.bool,
-  disableToday: PropTypes.bool,
-  headingStyle: PropTypes.object,
-  activeDayStyle: PropTypes.object,
-  disabledDayStyle: PropTypes.object,
-  selectedDayStyle: PropTypes.object,
+MiniCalendar.propTypes = {
+  showDayHeading: React.PropTypes.bool,
+  dayHeadings: React.PropTypes.array,
+  enabledDaysOfTheWeek: React.PropTypes.array,
+  startDate: React.PropTypes.string.isRequired,
+  numberOfDaysToShow: React.PropTypes.number.isRequired,
+  numberOfPreviousDaysToShow: React.PropTypes.number,
+  selectedDate: React.PropTypes.string,
+  onDateSelect: React.PropTypes.func.isRequired,
+  isoWeek: React.PropTypes.bool,
+  disablePreviousDays: React.PropTypes.bool,
+  disableToday: React.PropTypes.bool,
+  headingStyle: React.PropTypes.object,
+  activeDayStyle: React.PropTypes.object,
+  disabledDayStyle: React.PropTypes.object,
+  selectedDayStyle: React.PropTypes.object,
 }
 
 const styles = StyleSheet.create({
   container: {
-
+    alignSelf: 'stretch',
   },
   dayOfWeekContainer: {
     flexDirection: 'row',
