@@ -34,7 +34,8 @@ Sample render() function
             isoWeek={false}
             disablePreviousDays={true}
             disableToday={false}
-            headingStyle={{backgroundColor: 'navy'}}
+            dayStyle={{ textAlign: 'center', lineHeight: 56 }}
+            headingStyle={{backgroundColor: 'navy', lineHeight: 26}}
             activeDayStyle={{backgroundColor: 'green', color: 'white'}}
             disabledDayStyle={{backgroundColor: 'grey', color: 'darkgrey'}}
             selectedDayStyle={{backgroundColor: 'orange', color: 'black'}}

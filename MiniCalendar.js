@@ -81,7 +81,15 @@ class MiniCalendar extends React.Component {
           style={styles.dowStyleContainer}
         >
           <Text
-            style={[dowStyle, inactiveStyle, dowActiveStyle, activeDayStyle, dowSelectedDateStyle, selectedDayStyle]}
+            style={[
+              dowStyle,
+              this.props.dayStyle || {},
+              inactiveStyle,
+              dowActiveStyle,
+              activeDayStyle,
+              dowSelectedDateStyle,
+              selectedDayStyle
+            ]}
           >
             {displayDate}
           </Text>
@@ -92,7 +100,7 @@ class MiniCalendar extends React.Component {
     })
 
     return (
-      <View key={weekIdx} style={styles.dayOfWeekContainer}>
+      <View key={weekIdx} style={[styles.dayOfWeekContainer, this.props.weekContainerStyle || {}]}>
         {daysOfWeek}
       </View>
     )
@@ -115,7 +123,7 @@ class MiniCalendar extends React.Component {
       })
 
       miniCalendarHeadings = (
-        <View key={'headings'} style={[styles.dayOfWeekContainer, {flex: 0}]}>
+        <View key={'headings'} style={[styles.dayOfWeekHeadingsContainer, this.props.headingContainerStyle || {}]}>
           {headingsList}
         </View>
       )
@@ -127,7 +135,7 @@ class MiniCalendar extends React.Component {
     }
 
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, this.props.containerStyle || {}]}>
         {miniCalendarHeadings}
         {miniCalendar}
       </View>
@@ -147,7 +155,11 @@ MiniCalendar.propTypes = {
   isoWeek: React.PropTypes.bool,
   disablePreviousDays: React.PropTypes.bool,
   disableToday: React.PropTypes.bool,
+  containerStyle: React.PropTypes.object,
+  headingContainerStyle: React.PropTypes.object,
   headingStyle: React.PropTypes.object,
+  weekContainerStyle: React.PropTypes.object,
+  dayStyle: React.PropTypes.object,
   activeDayStyle: React.PropTypes.object,
   disabledDayStyle: React.PropTypes.object,
   selectedDayStyle: React.PropTypes.object,
@@ -155,30 +167,35 @@ MiniCalendar.propTypes = {
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: 'stretch',
+    flex: 1,
+  },
+  dayOfWeekHeadingsContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'stretch',
+    justifyContent: 'center',
   },
   dayOfWeekContainer: {
+    flex: 2,
     flexDirection: 'row',
-    flex: 1,
-    alignItems: 'center',
+    alignItems: 'stretch',
+    justifyContent: 'center',
   },
   dayOfWeekHeading: {
     flex: 1,
     textAlign: 'center',
     margin: 1,
-    paddingTop: 2,
-    paddingBottom: 2,
     color: '#eee',
     backgroundColor: '#777',
+    alignSelf: 'stretch',
   },
   dayOfWeek: {
     flex: 1,
-    textAlign: 'center',
+    textAlign: 'right',
     margin: 1,
-    paddingTop: 12,
-    paddingBottom: 12,
     color: '#aaa',
     backgroundColor: '#ddd',
+    alignSelf: 'stretch',
   },
   dayOfWeekActive: {
     color: '#222',
@@ -189,6 +206,8 @@ const styles = StyleSheet.create({
   },
   dowStyleContainer: {
     flex: 1,
+    alignItems: 'center',
+    flexDirection: 'row',
   },
 })
 
