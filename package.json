@@ -1,6 +1,6 @@
 {
   "name": "react-native-minicalendar",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple mini calendar or date picker component <MiniCalendar /> that allows selection of the days displayed",
   "main": "MiniCalendar.js",
   "scripts": {
